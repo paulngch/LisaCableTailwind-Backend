@@ -35,7 +35,7 @@ app.use("/auth", authRoutes);
 app.use("/api/cable", cablesController);
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 app.use(express.urlencoded({ extended: true }));
-app.use("/api/contact", sendGrid);
+// app.use("/api/contact", sendGrid);
 app.use("/api/contactform", contactFormController);
 app.use("/api/requestform", requestFormController);
 

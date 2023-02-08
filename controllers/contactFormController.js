@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
     const contactForm = await ContactForm.create(req.body);
 
     //SENDING TWILIO SMS
-    client.messages
+    await client.messages
       .create({
         body: `CONTACTFORM: ${msg.name}, ${msg.email}, ${msg.feedback}, ${msg.message}`,
         from: `${process.env.TWILIO_FROM_NUMBER}`,
@@ -42,7 +42,7 @@ router.post("/", async (req, res) => {
         Message: ${msg.message}`,
     };
 
-    sgMail.sendMultiple(email).then(() => {
+    await sgMail.sendMultiple(email).then(() => {
       console.log("Email sent");
     });
 
